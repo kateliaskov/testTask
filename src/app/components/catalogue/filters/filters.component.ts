@@ -6,5 +6,7 @@ import { Component } from '@angular/core';
   styleUrl: './filters.component.scss'
 })
 export class FiltersComponent {
-
+  nameValue: String;
+  rangePrice: number[] = [20, 180];
+  showWithoutPhotos: boolean = true;
 }

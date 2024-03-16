@@ -1,0 +1,49 @@
+.footer {
+  background-color: #122C34;
+
+  &__container {
+    padding: 20px 0;
+    color: white;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  &__block {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+
+    &_left {
+      justify-self: flex-start;
+    }
+
+    &_center {
+      justify-self: center;
+      align-self: center;
+      text-align: center;
+    }
+
+    &_right {
+      justify-self: flex-end;
+      flex-direction: row;
+      align-items: center;
+      gap: 20px;
+      
+    }
+  }
+
+  &__title {
+    font-size: 18px;
+    font-weight: 500;
+  }
+
+  &__text {
+    margin-bottom: 5px;
+    color: rgba(255, 255, 255, 0.788);
+  }
+  
+
+  img {
+    width: 30px;
+  }
+}

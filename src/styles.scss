@@ -2,3 +2,27 @@
 body {
   margin: 0;
 }
+
+
+.container {
+  width: 1140px;
+  margin: 0 auto;
+}
+
+@media (max-width: 1200px) {
+  .container {
+    width: 720px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 720px) {
+  .container {
+    width: 90%;
+    margin: 0 auto;
+  }
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}

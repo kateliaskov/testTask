@@ -1,0 +1,14 @@
+<div class="aboutProduct container">
+  <a routerLink="" class="aboutProduct__back">< До каталогу</a>
+  <div class="aboutProduct__container">
+    <div class="aboutProduct__photos">
+      <img *ngFor="let src of product.images" [src]="src" alt="" />
+    </div>
+    <div class="aboutProduct__text">
+      <div class="aboutProduct__title">{{product.title}}</div>
+      <div class="aboutProduct__description">{{product.description}}</div>
+      <div class="aboutProduct__price">{{product.price}} $</div>
+      <button class="aboutProduct__btn">Додати в кошик</button>
+    </div>
+  </div>
+  </div>

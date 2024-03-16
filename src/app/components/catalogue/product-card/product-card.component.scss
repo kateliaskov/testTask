@@ -6,6 +6,8 @@
   flex-direction: column;
   justify-content: space-between;
 
+  transition: .5s;
+
   &__img {
     justify-self: center;
     width: 100%;
@@ -18,12 +20,29 @@
     color: green;
   }
 
+  &__btns {
+    a{
+      all: unset;
+      text-decoration: none;
+    }
+    display: grid;
+    grid-template-columns: 4fr 1fr;
+    gap: 5px;
+  }
+
   &__btn {
     all: unset;
-    background-color: #B185A7;
+    background-color: #122C34;
     padding: 10px;
     text-align: center;
     color: white;
+    border-bottom-left-radius: 10px;
+    border-top-right-radius: 10px;
+
+    &:hover {
+      cursor: pointer;
+    }
+
   }
 
   &__title {

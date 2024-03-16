@@ -1,10 +1,22 @@
 
-.container {
-  width: 1200px;
-  margin: 0 auto;
-}
 .catalogue {
   display: flex;
+
+  &__header {
+    height: 90px;
+    overflow-y: hidden;
+    transition: .5s;
+
+    &_filtersOn {
+      height: 200px;
+    }
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 40px;
+  }
 
   &__nav {
     display: flex;
@@ -41,6 +53,56 @@
 
     &:hover {
       cursor: pointer;
+    }
+  }
+
+  &__btn {
+    all: unset;
+    align-self: center;
+    background-color:#B185A7;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    width: 200px;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+  }
+
+  &__extendFilters {
+    justify-self: flex-end;
+    background-color: #B185A7;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding: 5px;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    gap: 20px;
+    justify-content: flex-end;
+    align-items: center;
+    transition: .5s;
+    overflow: hidden;
+    color: white;
+    img {
+      width: 20px;
+      transition: .5s;
+    }
+
+    div {
+      white-space: nowrap;
+    }
+
+    &:hover {
+      cursor: pointer;
+      width: 200px;
+
+      img {
+        transform: rotate(90deg);
+      }
     }
   }
 }

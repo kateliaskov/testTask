@@ -1,13 +1,61 @@
 .filters {
-  width: 300px;
-  background-color: #122c34dd;
-  height: 93vh;
-  color: white;
-  padding: 10px 5px;
-  position: sticky;
-  top: 76px;
+  margin: 0;
+  background-color: #ead8e6e2;
+  height: 100px;
 
-  &__title {
-    font-size: 20px;
+  padding: 20px 10px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
+
+  font-size: 15px;
+
+  &__block {
+
+    &_name {
+      display: flex;
+      justify-content: center;
+    }
+
+    &_price {
+      font-size: 15px;
+      display: grid;
+      grid-template-columns: 2fr 3fr;
+      align-items: center;
+      gap: 5px;
+    }
+
+    &_imgs {
+      justify-self: center;
+      display: grid;
+      grid-template-columns: 3fr 1fr;
+      align-items: center;
+      gap: 10px;
+    }
+  }
+}
+
+:host ::ng-deep {
+
+  .p-inputtext {
+    height: 30px;
+  }
+
+  .p-togglebutton{
+    background-color: #122C34;
+    border: none;
+  }
+
+  .p-slider {
+    background-color: #122c3483;
+  }
+
+  .p-slider-handle {
+    background-color: #b185a7;
+    border-color: #122C34;
+  }
+
+  .p-slider-range {
+    background-color: #122C34;
   }
 }

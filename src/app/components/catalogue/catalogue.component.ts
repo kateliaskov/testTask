@@ -4,30 +4,52 @@ import { HttpClient } from '@angular/common/http';
 @Component({
   selector: 'app-catalogue',
   templateUrl: './catalogue.component.html',
-  styleUrl: './catalogue.component.scss'
+  styleUrls: ['./catalogue.component.scss', './loadingAnimation.scss']
 })
 export class CatalogueComponent {
   response: any;
+  categoryId: number = 1;
+  maxLoadedProducts = 10;
+
   constructor(private http: HttpClient) {
 
   }
+
   ngOnInit(): void {
-    this.getProducts(1);
+    this.getProducts();
   }
 
-  changeTab(categoryId: number, catalogueNav: Element, newTab: any) {
-    Array.from(catalogueNav.children).map((el: Element)=>{
+  changeTab(categoryId: any, catalogueNav: Element, newTab: any) {
+    Array.from(catalogueNav.children).map((el: Element) => {
       el != newTab.currentTarget ? el.classList.remove("catalogue__link_active") :
-      newTab.currentTarget.classList.add("catalogue__link_active")
+        newTab.currentTarget.classList.add("catalogue__link_active")
     })
-    this.getProducts(categoryId);
+
+    this.response = false;
+    this.maxLoadedProducts = 10;
+    this.categoryId = categoryId;
+    this.getProducts();
   }
 
-  getProducts(categoryId: number) {
-    this.http.get('https://api.escuelajs.co/api/v1/products/?categoryId=' + categoryId)
-      .subscribe((response) => {
-        this.response = response;
-        console.log(response);
+  showFilters(catalogueHeader: Element) {
+    catalogueHeader.classList.toggle("catalogue__header_filtersOn")
+  }
+
+  loadMore() {
+    this.maxLoadedProducts += 10;
+    this.getProducts();
+  }
+
+  getProducts() {
+    this.http.get(`https://api.escuelajs.co/api/v1/products/?categoryId=${this.categoryId}&offset=0&limit=${this.maxLoadedProducts}`)
+      .subscribe((response2) => {
+        console.log(response2)
+        this.response = response2
+        this.response.map((el: any) => {
+          if (!el.images[0].endsWith('jpeg')) {
+            el.images = [`../../../assets/images/${el.category.name}-placeholder.webp`]
+          }
+        })
       });
   }
 }

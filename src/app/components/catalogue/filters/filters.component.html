@@ -1,8 +1,13 @@
 <div class="filters">
-  <div class="filters__title">Фільтр</div>
-
-  <div class="filters__rating">
-    <div class="filters__filterTitle">Рейтинг продукту</div>
-    <p-rating [cancel]="false"></p-rating>
+  <div class="filters__block filters__block_name">
+    <input type="text" pInputText [(ngModel)]="nameValue" placeholder="Назву продукту"/>
+  </div>
+  <div class="filters__block filters__block_price">
+    Ціна: {{rangePrice[0]}}$ - {{rangePrice[1]}}$
+    <p-slider [(ngModel)]="rangePrice" [range]="true" [max]="200"></p-slider>
+  </div>
+  <div class="filters__block filters__block_imgs">
+    <div>Показувати товар без фото</div>
+    <p-toggleButton [(ngModel)]="showWithoutPhotos" onLabel="Так" offLabel="Ні"></p-toggleButton>
   </div>
 </div>

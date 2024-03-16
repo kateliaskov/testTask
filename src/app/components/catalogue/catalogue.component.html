@@ -1,17 +1,38 @@
 <div class="catalogue">
-  <app-filters></app-filters>
-  <div class="container">
-    <nav class="catalogue__nav" #catalogueNav>
-      <div class="catalogue__link catalogue__link_active">Усі товари</div>
-      <div class="catalogue__link" (click)="changeTab(1, catalogueNav, $event)">Одяг</div>
-      <div class="catalogue__link" (click)="changeTab(4, catalogueNav, $event)">Взуття</div>
-      <div class="catalogue__link" (click)="changeTab(2, catalogueNav, $event)">Електроніка</div>
-    </nav>
+  <div class="container catalogue__container">
+
+    <div class="catalogue__header" #catalogueHeader>
+      <nav class="catalogue__nav" #catalogueNav>
+        <div class="catalogue__link catalogue__link_active" (click)="changeTab(1, catalogueNav, $event)">Одяг</div>
+        <div class="catalogue__link" (click)="changeTab(4, catalogueNav, $event)">Взуття</div>
+        <div class="catalogue__link" (click)="changeTab(2, catalogueNav, $event)">Електроніка</div>
+
+        <div class="catalogue__extendFilters" (click)="showFilters(catalogueHeader)">
+          <div>Більше Фільтрів</div>
+          <img src="../../../assets/icons/arrow.svg" alt="arrow" />
+        </div>
+      </nav>
+      <app-filters></app-filters>
+    </div>
+
     <div *ngIf="response" class="catalogue__products">
       <div *ngFor="let product of response">
         <app-product-card [product]="product"></app-product-card>
       </div>
     </div>
-    <div *ngIf="!response">Loading</div>
+    <button *ngIf="response && maxLoadedProducts<20" class="catalogue__btn" (click)="loadMore()">Загрузити ще</button>
+
+    <div *ngIf="!response" class="loading">
+      <div class="loading__container">
+        <div class="loading__ball"></div>
+        <div class="loading__ball"></div>
+        <div class="loading__ball"></div>
+        <div class="loading__ball"></div>
+        <div class="loading__ball"></div>
+        <div class="loading__ball"></div>
+        <div class="loading__ball"></div>
+      </div>
+      <div class="loading__title">Працюємо над цим...</div>
+    </div>
   </div>
 </div>

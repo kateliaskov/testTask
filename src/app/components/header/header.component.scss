@@ -1,0 +1,34 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 40px;
+  background-color: #122C34;
+  align-items: center;
+  color: white;
+
+  position: sticky;
+  top: 0;
+
+  z-index: 10;
+
+  a {
+    color: white;
+    text-decoration: none;
+  }
+
+  &__logo {
+    font-size: 30px;
+  }
+
+  &__links {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+  }
+
+  &__link {
+    &_img {
+      width: 30px;
+    }
+  }
+}

@@ -1,0 +1,17 @@
+<div class="catalogue">
+  <app-filters></app-filters>
+  <div class="container">
+    <nav class="catalogue__nav" #catalogueNav>
+      <div class="catalogue__link catalogue__link_active">Усі товари</div>
+      <div class="catalogue__link" (click)="changeTab(1, catalogueNav, $event)">Одяг</div>
+      <div class="catalogue__link" (click)="changeTab(4, catalogueNav, $event)">Взуття</div>
+      <div class="catalogue__link" (click)="changeTab(2, catalogueNav, $event)">Електроніка</div>
+    </nav>
+    <div *ngIf="response" class="catalogue__products">
+      <div *ngFor="let product of response">
+        <app-product-card [product]="product"></app-product-card>
+      </div>
+    </div>
+    <div *ngIf="!response">Loading</div>
+  </div>
+</div>

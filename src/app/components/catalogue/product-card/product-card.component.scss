@@ -1,0 +1,33 @@
+.productCard {
+  box-shadow: 1px 6px 27px -6px rgba(0,0,0,0.39);
+  height: 300px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  &__img {
+    justify-self: center;
+    width: 100%;
+    height: 50%;
+    object-fit: contain;
+  }
+
+  &__price {
+    padding: 10px;
+    color: green;
+  }
+
+  &__btn {
+    all: unset;
+    background-color: #B185A7;
+    padding: 10px;
+    text-align: center;
+    color: white;
+  }
+
+  &__title {
+    text-align: center;
+    font-weight: 500;
+  }
+}

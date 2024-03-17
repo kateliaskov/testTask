@@ -11,18 +11,18 @@ export class AboutProductComponent {
   route: ActivatedRoute = inject(ActivatedRoute);
   productId = 0;
   product: any;
+  rating: number;
 
   constructor(private http: HttpClient) {
     this.productId = Number(this.route.snapshot.params['id']);
   }
 
   ngOnInit() {
-    this.http.get(`https://api.escuelajs.co/api/v1/products/${this.productId}`)
-    .subscribe((response)=>{
-      this.product = response;
-      if (!this.product.images[0].endsWith('jpeg')) {
-        this.product.images = [`../../../assets/images/${this.product.category.name}-placeholder.webp`]
-      }
-    })
+    this.http.get(`https://dummyjson.com/products/${this.productId}`)
+      .subscribe((response) => {
+        this.product = response;
+        this.rating = Math.round(this.product.rating)
+      })
+    
   }
 }

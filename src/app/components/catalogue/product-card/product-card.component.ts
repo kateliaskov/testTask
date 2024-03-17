@@ -6,5 +6,10 @@ import { Component, Input } from '@angular/core';
   styleUrl: './product-card.component.scss'
 })
 export class ProductCardComponent {
-  @Input() product:any;
+  @Input() product: any;
+  rating: number;
+
+  ngOnInit() {
+    this.rating = Math.round(this.product.rating)
+  }
 }

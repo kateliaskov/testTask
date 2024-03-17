@@ -25,10 +25,10 @@
       gap: 5px;
     }
 
-    &_imgs {
+    &_rating {
       justify-self: center;
       display: grid;
-      grid-template-columns: 3fr 1fr;
+      grid-template-columns: 1fr;
       align-items: center;
       gap: 10px;
     }
@@ -41,13 +41,14 @@
     height: 30px;
   }
 
-  .p-togglebutton{
+  .p-rating-star-on {
     background-color: #122C34;
-    border: none;
   }
 
-  .p-slider {
-    background-color: #122c3483;
+  .p-rating-icon-active {
+      path {
+        fill: #122c34;
+      }
   }
 
   .p-slider-handle {

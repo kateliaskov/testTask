@@ -50,3 +50,11 @@
     font-weight: 500;
   }
 }
+
+:host ::ng-deep {
+  .p-rating-icon-active {
+    path {
+      fill: rgb(255, 240, 71);
+    }
+}
+}

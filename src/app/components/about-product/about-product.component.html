@@ -7,6 +7,7 @@
     <div class="aboutProduct__text">
       <div class="aboutProduct__title">{{product.title}}</div>
       <div class="aboutProduct__description">{{product.description}}</div>
+      <p-rating [(ngModel)]="rating" [readonly]="true" [cancel]="false"></p-rating>
       <div class="aboutProduct__price">{{product.price}} $</div>
       <button class="aboutProduct__btn">Додати в кошик</button>
     </div>

@@ -2,6 +2,9 @@
   <img src="{{product.images[0]}}" alt="" class="productCard__img"/>
   <div class="productCard__title">{{product.title}}</div>
   <div class="productCard__price">{{product.price}}$</div>
+  <div class="productCard__rating">
+    <p-rating [(ngModel)]="rating" [readonly]="true" [cancel]="false"></p-rating>
+  </div>
   <div class="productCard__btns">
     <button class="productCard__btn">Додати в кошик</button>
     <a [routerLink]="['product', product.id]"><button class="productCard__btn productCard__btn_more">></button></a>

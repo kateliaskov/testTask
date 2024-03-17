@@ -17,6 +17,10 @@ import { FormsModule } from '@angular/forms';
 import { ToggleButtonModule } from 'primeng/togglebutton';
 import { AboutProductComponent } from './components/about-product/about-product.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { StoreModule } from '@ngrx/store';
+import { cartReducer } from './store/cart.reducers';
+import { CartSidebarComponent } from './components/header/cart-sidebar/cart-sidebar.component';
+import { DataViewModule } from 'primeng/dataview';
 
 @NgModule({
   declarations: [
@@ -27,7 +31,8 @@ import { FooterComponent } from './components/footer/footer.component';
     ProductCardComponent,
     FiltersComponent,
     AboutProductComponent,
-    FooterComponent
+    FooterComponent,
+    CartSidebarComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +43,9 @@ import { FooterComponent } from './components/footer/footer.component';
     InputTextModule,
     FormsModule,
     SliderModule,
-    ToggleButtonModule
+    ToggleButtonModule,
+    DataViewModule,
+    StoreModule.forRoot({ cart: cartReducer })
   ],
   providers: [],
   bootstrap: [AppComponent]

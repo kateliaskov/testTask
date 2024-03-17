@@ -6,8 +6,7 @@
     <p-rating [(ngModel)]="rating" [readonly]="true" [cancel]="false"></p-rating>
   </div>
   <div class="productCard__btns">
-    <button class="productCard__btn">Додати в кошик</button>
-    <a [routerLink]="['product', product.id]"><button class="productCard__btn productCard__btn_more">></button></a>
+    <button class="productCard__btn" (click)="addToCart()">Додати в кошик</button>
+    <a [routerLink]="['product', product.id]" class="productCard__btn productCard__btn_more">></a>
   </div>
-  
 </div>

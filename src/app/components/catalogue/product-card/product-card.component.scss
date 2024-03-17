@@ -21,10 +21,6 @@
   }
 
   &__btns {
-    a{
-      all: unset;
-      text-decoration: none;
-    }
     display: grid;
     grid-template-columns: 4fr 1fr;
     gap: 5px;

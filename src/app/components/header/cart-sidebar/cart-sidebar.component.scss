@@ -1,0 +1,15 @@
+.sideCart {
+  height: 100vh;
+  width: 400px;
+  background-color: rgb(196, 196, 196);
+  position: fixed;
+  right: 0;
+  z-index: 8;
+
+  transform: translateX(100%);
+  transition: .5s;
+
+  &_active{
+    transform: translateX(0);
+  }
+}

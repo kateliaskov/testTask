@@ -5,9 +5,9 @@ import { AboutProductComponent } from './components/about-product/about-product.
 import { CartPageComponent } from './components/cart/cart-page/cart-page.component';
 
 const routes: Routes = [
-  { path: '', component: CatalogueComponent },
+  { path: '', component: CatalogueComponent, title: "Каталог | online shop" },
   { path: 'product/:id', component: AboutProductComponent },
-  { path: 'cart', component: CartPageComponent }
+  { path: 'cart', component: CartPageComponent, title: "Замовлення | online shop"  }
 ];
 
 @NgModule({

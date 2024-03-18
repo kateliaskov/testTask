@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { Store } from '@ngrx/store';
 import { addToCart } from '../../store/cart.actions';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-about-product',
@@ -17,7 +18,7 @@ export class AboutProductComponent {
   currentImg: String;
 
 
-  constructor(private http: HttpClient, private store: Store) {
+  constructor(private http: HttpClient, private store: Store, private titleService: Title) {
     this.productId = Number(this.route.snapshot.params['id']);
   }
 
@@ -31,7 +32,12 @@ export class AboutProductComponent {
         this.product = response;
         this.rating = Math.round(this.product.rating)
         this.currentImg = this.product.images[0]
+        this.setTitle(this.product.title + ' | online shop');
       })
+  }
+
+  setTitle(title: string): void {
+    this.titleService.setTitle(title);
   }
 
   ngOnInit() {

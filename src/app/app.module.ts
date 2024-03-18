@@ -25,6 +25,7 @@ import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { CartListComponent } from './components/cart/cart-list/cart-list.component';
 import { RadioButtonModule } from 'primeng/radiobutton';
 import { DropdownModule } from 'primeng/dropdown';
+import { SimilarComponent } from './components/about-product/similar/similar.component';
 
 
 @NgModule({
@@ -38,7 +39,8 @@ import { DropdownModule } from 'primeng/dropdown';
     FooterComponent,
     CartSidebarComponent,
     CartPageComponent,
-    CartListComponent
+    CartListComponent,
+    SimilarComponent
   ],
   imports: [
     BrowserModule,

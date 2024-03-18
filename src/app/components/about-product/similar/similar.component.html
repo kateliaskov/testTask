@@ -1,0 +1,17 @@
+<div class="similar__title">Схожі товари</div>
+<div class="similar container" *ngIf="similarProducts">  
+  <div class="similar__product" *ngFor="let product of similarProducts">
+    <img [src]="product.images[0]" alt=""/>
+    <div class="similar__text">
+      <div class="similar__name">
+        {{product.title}}
+      </div>
+      <div class="similar__description">
+        {{product.description.slice(0, 30) + '...'}}
+      </div>
+      <a [routerLink]="['/product', product.id]" class="similar__btn">Переглянути</a>
+    </div>
+  </div>
+</div>
+
+<div class="similar__loading" *ngIf="!similarProducts">Загрузка...</div>

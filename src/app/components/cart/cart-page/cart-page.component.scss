@@ -1,4 +1,4 @@
-
+@import '../../../../styles.scss';
 .cartPage {
   min-height: 80vh;
   padding-top: 150px;
@@ -7,8 +7,8 @@
     all: unset;
     display: inline-block;
     margin-bottom: 20px;
-    color: #B185A7;
-    border-bottom: 1px solid #B185A7;
+    color: $secondary;
+    border-bottom: 1px solid $secondary;
 
     font-size: 16px;
 
@@ -94,7 +94,7 @@
 
   &__btn {
     all: unset;
-    background-color: #B185A7;
+    background-color: $secondary;
     color: white;
     width: 300px;
     padding: 10px;

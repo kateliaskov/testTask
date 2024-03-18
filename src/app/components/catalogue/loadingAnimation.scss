@@ -1,3 +1,4 @@
+@import '../../../styles.scss';
 .loading {
 
 	display: flex;
@@ -12,7 +13,7 @@
 		height: 10px;
 		margin: 10px auto;
 		border-radius: 50px;
-		background: #B185A7;
+		background: $secondary;
 
 		&:nth-child(1) {
 			animation: right 1s infinite ease-in-out;

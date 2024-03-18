@@ -1,3 +1,5 @@
+@import '../../../styles.scss';
+
 .aboutProduct {
   padding: 150px 0;
 
@@ -5,8 +7,8 @@
     all: unset;
     display: inline-block;
     margin-bottom: 20px;
-    color: #B185A7;
-    border-bottom: 1px solid #B185A7;
+    color: $secondary;
+    border-bottom: 1px solid $secondary;
 
     font-size: 16px;
 
@@ -34,6 +36,9 @@
     width: 100%;
     height: 100%;
     object-fit: contain;
+
+    border: 1px solid rgba(128, 128, 128, 0.441);
+    border-radius: 5px;
   }
 
   &__photos {
@@ -62,9 +67,16 @@
   }
 
   &__text {
-    display: flex;
-    flex-direction: column;
-    gap: 50px;
+    position: relative;
+
+    .test {
+      position: sticky;
+      top: 100px;
+      display: flex;
+      flex-direction: column;
+      gap: 50px;
+      height: auto;
+    }
   }
 
   &__description {
@@ -85,7 +97,7 @@
   &__btn {
     all: unset;
     width: 200px;
-    background-color: #B185A7;
+    background-color: $secondary;
     color: white;
     padding: 20px;
     text-align: center;
@@ -113,23 +125,6 @@
       gap: 40px;
     }
 
-    &__photos {
-      justify-self: center;
-      grid-template-columns: 3fr 1fr;
-      grid-template-rows: 1fr 1fr 1fr;
-      align-items: center;
-      width: 80%;
-      height: auto;
-    }
-
-    &__img {
-      width: 100%;
-      &_active {
-        grid-column: auto;
-        grid-row: 1/5;
-      }
-    }
-
     &__btn {
       padding: 20px 0;
       width: 100%;
@@ -139,6 +134,7 @@
 
 @media (max-width: 720px) {
   .aboutProduct {
+    padding: 100px 0;
     padding-bottom: 50px;
     &__container {
       display: grid;
@@ -146,30 +142,21 @@
       gap: 40px;
     }
 
-    &__photos {
-      justify-self: center;
-      grid-template-columns: 1fr 1fr 1fr;
-      grid-template-rows: 3fr 1fr;
-      align-items: center;
-      width: 80%;
-      height: auto;
+    &__photoContainer {
+      grid-template-rows: 350px auto;
     }
 
-    &__img {
-      width: 100%;
-      grid-row: auto;
-      grid-column: auto;
-      
-      &_active {
-        background-color: red;
-        grid-row: auto;
-        grid-column: 1/4;
-      }
+    &__photos {
+      grid-template-rows: 80px 80px;
     }
 
     &__btn {
       padding: 20px 0;
       width: 100%;
+    }
+
+    &__text {
+      gap: 20px;
     }
   }
 }

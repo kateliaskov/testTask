@@ -92,6 +92,7 @@ export class CartPageComponent {
 
   sendOrder() {
     if(this.validateData()){
+      alert("Ваше замовлення успішно надіслане")
       this.svc.deleteAllProducts()
     } else {
       alert("Будь ласка, заповніть усі поля")

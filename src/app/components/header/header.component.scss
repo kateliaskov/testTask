@@ -1,8 +1,9 @@
+@import '../../../styles.scss';
 .header {
   display: flex;
   justify-content: space-between;
   padding: 20px 40px;
-  background-color: #122C34;
+  background-color: $primary;
   align-items: center;
   color: white;
 
@@ -47,7 +48,7 @@
 
   &__count {
     position: absolute;
-    background-color: #B185A7;
+    background-color: $secondary;
     border-radius: 50%;
     color: white;
     text-align: center;

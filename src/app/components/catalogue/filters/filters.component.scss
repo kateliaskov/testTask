@@ -1,3 +1,5 @@
+@import '../../../../styles.scss';
+
 .filters {
   margin: 0;
   background-color: #ead8e6e2;
@@ -42,22 +44,22 @@
   }
 
   .p-rating-star-on {
-    background-color: #122C34;
+    background-color: $primary;
   }
 
   .p-rating-icon-active {
       path {
-        fill: #122c34;
+        fill: $primary;
       }
   }
 
   .p-slider-handle {
-    background-color: #b185a7;
-    border-color: #122C34;
+    background-color: $secondary;
+    border-color: $primary;
   }
 
   .p-slider-range {
-    background-color: #122C34;
+    background-color: $primary;
   }
 }
 

@@ -1,5 +1,6 @@
+@import '../../../styles.scss';
 .footer {
-  background-color: #122C34;
+  background-color: $primary;
   justify-self: flex-end;
 
   &__container {

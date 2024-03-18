@@ -88,3 +88,22 @@
     }
   }
 }
+
+@media (max-width: 720px) {
+  .sideCart {
+    width: 100vw;
+
+    &__btn {
+      all: unset;
+      width: 100%;
+      background-color: #B185A7;
+      color: white;
+      padding: 20px 0;
+      text-align: center;
+  
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+}

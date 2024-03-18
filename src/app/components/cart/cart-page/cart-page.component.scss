@@ -138,10 +138,6 @@
       gap: 50px;
     }
 
-    .sideCart__product {
-      background-color: red !important;
-    }
-
     &__personalInfo{
       width: 100%;
       display: flex;
@@ -161,6 +157,38 @@
   
       &:hover {
         cursor: pointer;
+      }
+    }
+  }
+}
+
+@media (max-width: 720px) {
+  .cartPage {
+    padding-top: 100px;
+    &__personalInfo{
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    &__mainInfo {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    &__delivery {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      font-size: large;
+      p-dropdown {
+        width: 100%;
+      }
+      div {
+        display: flex;
+        gap: 5px;
       }
     }
   }

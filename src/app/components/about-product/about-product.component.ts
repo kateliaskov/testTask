@@ -14,13 +14,15 @@ export class AboutProductComponent {
   productId = 0;
   product: any;
   rating: number;
+  currentImg: String;
+  
 
   constructor(private http: HttpClient, private store: Store) {
     this.productId = Number(this.route.snapshot.params['id']);
   }
 
-  isProductInCart(){
-
+  viewPhoto($event:any) {
+    this.currentImg = $event.currentTarget.src;
   }
 
   ngOnInit() {
@@ -28,9 +30,9 @@ export class AboutProductComponent {
       .subscribe((response) => {
         this.product = response;
         this.rating = Math.round(this.product.rating)
+        this.currentImg = this.product.images[0]
       })
 
-    
   }
 
   addToCart() {

@@ -16,12 +16,12 @@
       <app-filters *ngIf="allProducts" [products]="allProducts" (filterEvent)="filterProducts($event)"></app-filters>
     </div>
 
-    <div *ngIf="allProducts" class="catalogue__products">
+    <div *ngIf="allProducts && activeProducts.length!=0" class="catalogue__products">
       <div *ngFor="let product of activeProducts">
         <app-product-card [product]="product"></app-product-card>
       </div>
     </div>
-    <button *ngIf="allProducts  && category == ''" class="catalogue__btn" (click)="loadMore()">Загрузити ще</button>
+    <button *ngIf="allProducts  && category == '' && activeProducts.length!=0" class="catalogue__btn" (click)="loadMore()">Загрузити ще</button>
 
     <div *ngIf="!allProducts" class="loading">
       <div class="loading__container">
@@ -34,6 +34,11 @@
         <div class="loading__ball"></div>
       </div>
       <div class="loading__title">Працюємо над цим...</div>
+    </div>
+
+    <div *ngIf="activeProducts.length==0" class="noResults">
+      <img src="../../../assets/images/no-results.png"/>
+      <div>Результатів не знайдено</div>
     </div>
   </div>
 </div>

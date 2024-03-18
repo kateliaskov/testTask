@@ -53,3 +53,19 @@
     text-align: center;
   }
 }
+
+@media (max-width: 720px) {
+  .sideCart {
+    &__product {
+      height: 100px;
+      padding: 20px 0;
+    
+      img {
+        width: 100%;
+        height: 100%;
+        border-radius: 5px;
+        object-fit: contain;
+      }
+    }
+  }
+}

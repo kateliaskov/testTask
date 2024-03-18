@@ -1,9 +1,14 @@
 <div class="aboutProduct container">
   <a routerLink="" class="aboutProduct__back">< До каталогу</a>
   <div class="aboutProduct__container">
-    <div class="aboutProduct__photos">
-      <img *ngFor="let src of product.images" [src]="src" alt="" />
+
+    <div class="aboutProduct__photoContainer">
+      <img [src]="currentImg" alt="" class="aboutProduct__mainPhoto"/>
+      <div class="aboutProduct__photos">
+        <img *ngFor="let src of product.images" [src]="src" alt="" [class]="'aboutProduct__img ' + (currentImg == src ? 'aboutProduct__img_active': '')" (click)="viewPhoto($event)" />
+      </div>
     </div>
+
     <div class="aboutProduct__text">
       <div class="aboutProduct__title">{{product.title}}</div>
       <div class="aboutProduct__description">{{product.description}}</div>

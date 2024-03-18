@@ -6,6 +6,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  padding: 10px;
 
   transition: .5s;
 
@@ -14,6 +15,12 @@
     width: 100%;
     height: 50%;
     object-fit: contain;
+  }
+
+  &__info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
   }
 
   &__price {

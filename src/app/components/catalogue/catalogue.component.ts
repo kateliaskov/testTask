@@ -48,7 +48,6 @@ export class CatalogueComponent {
   getProducts() {
     this.http.get(`https://dummyjson.com/products/${this.category}?limit=${this.maxLoadedProducts}&skip=0`)
       .subscribe((response: any) => {
-        console.log(response)
         this.allProducts = response.products
         this.activeProducts = response.products
       });

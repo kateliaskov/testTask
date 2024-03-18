@@ -1,0 +1,38 @@
+<div class="sideCart" id="sideCart">
+  <div *ngIf="cart.length !== 0" class="sideCart__full">
+    <div class="sideCart__products">
+      <div class="sideCart__product" *ngFor="let item of cart">
+        <img [src]="item.product.images[0]" alt="" />
+
+        <div class="sideCart__texts">
+          <div class="sideCart__title">{{item.product.title}}</div>
+          <div class="sideCart__price">{{item.product.price}}$</div>
+        </div>
+
+        <div class="sideCart__counter">
+          <div class="sideCart__minus" (click)="changeNumberOfProducts(item.product, false)">-</div>
+          <div class="sideCart__quantity">{{item.quantity}}</div>
+          <div class="sideCart__plus" (click)="changeNumberOfProducts(item.product, true)">+</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sideCart__info">
+      <div class="sideCart__summary">
+        <div class="sideCart__totalPrice">
+          Усього: <span>{{totalNumber}}$</span>
+        </div>
+        <img (click)="confirmDelete($event)" title="Очистити кошик" src="../../../../assets/icons/delete.png" class="sideCart__delete" />
+        
+      </div>
+
+      <button class="sideCart__btn">Оформити Замовлення</button>
+    </div>
+  </div>
+
+  <div *ngIf="cart.length == 0" class="sideCart__empty">
+    <img src="../../../../assets/images/empty-cart.png"/>
+    <div>Кошик пустий</div>
+  </div>
+</div>
+<p-confirmDialog acceptLabel="Так" rejectLabel="Ні"></p-confirmDialog>

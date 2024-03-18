@@ -22,6 +22,9 @@ import { CartSidebarComponent } from './components/cart/cart-sidebar/cart-sideba
 import { CartPageComponent } from './components/cart/cart-page/cart-page.component';
 import { CartManipulationsService } from './components/cart/cart-manipulations.service';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { CartListComponent } from './components/cart/cart-list/cart-list.component';
+import { RadioButtonModule } from 'primeng/radiobutton';
+import { DropdownModule } from 'primeng/dropdown';
 
 
 @NgModule({
@@ -34,7 +37,8 @@ import { ConfirmDialogModule } from 'primeng/confirmdialog';
     AboutProductComponent,
     FooterComponent,
     CartSidebarComponent,
-    CartPageComponent
+    CartPageComponent,
+    CartListComponent
   ],
   imports: [
     BrowserModule,
@@ -47,6 +51,8 @@ import { ConfirmDialogModule } from 'primeng/confirmdialog';
     SliderModule,
     ToggleButtonModule,
     ConfirmDialogModule,
+    RadioButtonModule,
+    DropdownModule,
     StoreModule.forRoot({ cart: cartReducer })
   ],
   providers: [CartManipulationsService],

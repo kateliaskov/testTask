@@ -1,6 +1,8 @@
 import { Component, inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import { Store } from '@ngrx/store';
+import { addToCart } from '../../store/cart.actions';
 
 @Component({
   selector: 'app-about-product',
@@ -13,8 +15,12 @@ export class AboutProductComponent {
   product: any;
   rating: number;
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private store: Store) {
     this.productId = Number(this.route.snapshot.params['id']);
+  }
+
+  isProductInCart(){
+
   }
 
   ngOnInit() {
@@ -23,6 +29,11 @@ export class AboutProductComponent {
         this.product = response;
         this.rating = Math.round(this.product.rating)
       })
+
     
+  }
+
+  addToCart() {
+    this.store.dispatch(addToCart({item: this.product}));
   }
 }

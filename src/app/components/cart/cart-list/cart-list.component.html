@@ -1,0 +1,14 @@
+<div class="sideCart__product" *ngFor="let item of cart">
+  <img [src]="item.product.images[0]" alt="" />
+
+  <div class="sideCart__texts">
+    <div class="sideCart__title">{{item.product.title}}</div>
+    <div class="sideCart__price">{{item.product.price}}$</div>
+  </div>
+
+  <div class="sideCart__counter">
+    <div class="sideCart__minus" (click)="changeNumberOfProducts(item.product, false)">-</div>
+    <div class="sideCart__quantity">{{item.quantity}}</div>
+    <div class="sideCart__plus" (click)="changeNumberOfProducts(item.product, true)">+</div>
+  </div>
+</div>

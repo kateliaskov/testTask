@@ -49,53 +49,11 @@
     gap: 20px;
   }
 
-  &__product {
-    display: grid;
-    grid-template-columns: 2fr 4fr 1fr;
-    gap: 20px;
-    align-items: center;
-    height: 80px;
-
-    img {
-      width: 100%;
-      border-radius: 5px;
-    }
-
-    border-bottom: 1px solid gray;
-    padding-bottom: 20px;
-  }
-
-  &__title {
-    font-weight: 500;
-  }
-
-  &__price{
-    color: green;
-  }
-
-  &__counter {
-    display: flex;
-    gap: 10px;
-    align-items: center;
-  }
-
-  &__plus, &__minus {
-    font-size: 30px;
-    user-select: none;
-    &:hover {
-      cursor: pointer;
-    }
-  }
-
-  &__quantity{
-    background-color: white;
-    border: 1px solid gray;
-    border-radius: 10px;
-    padding: 5px 20px;
-    text-align: center;
-  }
 
   &__info {
+    a {
+      all: unset;
+    }
     font-size: 20px;
     img {
       width: 30px;

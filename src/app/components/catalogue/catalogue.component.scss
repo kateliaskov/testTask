@@ -108,3 +108,25 @@
     }
   }
 }
+
+@media (max-width: 1200px) {
+  .catalogue {
+    &__products {
+      padding: 50px 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+
+    &__header {
+      height: 90px;
+      overflow-y: hidden;
+      transition: .5s;
+  
+      &_filtersOn {
+        height: 250px;
+      }
+    }
+  }
+}

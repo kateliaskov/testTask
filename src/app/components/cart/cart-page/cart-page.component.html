@@ -1,1 +1,83 @@
-<p>cart-page works!</p>
+<div class="cartPage container">
+
+  <div *ngIf="cartLength!=0">
+    <a routerLink="" class="cartPage__back">< До каталогу</a>
+    <div class="cartPage__info">
+      <div class="cartPage__products">
+        <app-cart-list (totalPrice)="setTotalNumber($event)" (totalLength)="isEmpty($event)"></app-cart-list>
+      </div>
+
+      <div class="cartPage__mainInfo">
+        <div class="cartPage__totalPrice">
+          Усього: <span class="cartPage__money">{{delivery == 'delivery' ? totalNumber : modifyedNumber}}$</span>
+          <span *ngIf="delivery == 'pickup'">(-15% знижка)</span>
+        </div>
+
+        <div class="cartPage__personalInfo">
+          <input type="text" pInputText [(ngModel)]="name" placeholder="П.І.Б" />
+          <input class="cartPage__input" type="text" pInputText [(ngModel)]="phone" placeholder="Номер Телефону"
+            (change)="validatePhone($event)" />
+        </div>
+
+
+        <div class="cartPage__delivery">
+          <div class="flex align-items-center">
+            <p-radioButton name="delivery" value="delivery" [(ngModel)]="delivery" inputId="delivery1"></p-radioButton>
+            <label for="delivery1">Доставка</label>
+          </div>
+
+          <div class="flex align-items-center">
+            <p-radioButton name="pickup" value="pickup" [(ngModel)]="delivery" inputId="delivery2"></p-radioButton>
+            <label for="delivery2" class="ml-2">
+              Самовивіз <span>-15%</span>
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cartPage__block" *ngIf="delivery=='delivery'">
+      <div>Пошта</div>
+      <p-dropdown [options]="posts" [(ngModel)]="selectedPost" optionLabel="name" [showClear]="true"
+        placeholder="Оберіть Пошту" (onChange)="changePost()"></p-dropdown>
+      <p-dropdown *ngIf="selectedPost" [options]="postAdresses" [(ngModel)]="selectedPostAdress" [showClear]="true"
+        placeholder="Оберіть відділення"></p-dropdown>
+    </div>
+
+    <div class="cartPage__block" *ngIf="delivery!='delivery'">
+      <div>Самовивіз </div>
+      <div>
+        <p-dropdown [options]="pickUp" [(ngModel)]="selectedPickup" optionLabel="name" [showClear]="true"
+          placeholder="Оберіть точку самовивозу"></p-dropdown>
+      </div>
+
+    </div>
+
+    <div class="cartPage__block">
+      <div>Оплата</div>
+      <div class="cartPage__payment">
+        <div>
+          <p-radioButton name="cash" value="cash" [(ngModel)]="payment" inputId="cash"></p-radioButton>
+          <label for="cash">Готівка</label>
+        </div>
+
+        <div>
+          <p-radioButton name="card" value="card" [(ngModel)]="payment" inputId="card"></p-radioButton>
+          <label for="card">
+            Карта
+          </label>
+        </div>
+
+
+      </div>
+      <button class="cartPage__btn" (click)="sendOrder()">Надіслати замовлення</button>
+    </div>
+  </div>
+
+  <div *ngIf="cartLength===0" class="cartPage__empty">
+    <img src="../../../../assets/images/empty-cart.png" alt="">
+    <p>Кошик пустий</p>
+    <a routerLink=""><- Повернутись до катаогу</a>
+  </div>
+
+</div>

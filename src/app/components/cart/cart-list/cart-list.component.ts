@@ -1,32 +1,40 @@
-import { Component, ElementRef, HostListener } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { CartManipulationsService } from '../cart-manipulations.service';
 import { ConfirmationService } from 'primeng/api';
 
 @Component({
-  selector: 'app-cart-sidebar',
-  templateUrl: './cart-sidebar.component.html',
-  styleUrl: './cart-sidebar.component.scss',
+  selector: 'app-cart-list',
+  templateUrl: './cart-list.component.html',
+  styleUrls: ['./cart-list.component.scss'],
   providers: [ConfirmationService]
 })
-
-export class CartSidebarComponent {
+export class CartListComponent {
   cart: any[] = [];
   pureResult: any[] = [];
   totalNumber: number;
   constructor(private store: Store<any>,
     private svc: CartManipulationsService,
-    private confirmationService: ConfirmationService,
-    private el: ElementRef
-  ) {
+    private confirmationService: ConfirmationService) {
+
   }
+
+  @Output() totalPrice = new EventEmitter<number>();
+  @Output() totalLength = new EventEmitter<number>();
 
   ngOnInit() {
     this.store.select('cart').subscribe(res => {
       this.cart = this.svc.groupProducts(res.cart)
       this.pureResult = res.cart;
       this.totalNumber = this.pureResult.reduce((total: any, item: any) => total + item.price, 0);
+      this.totalPrice.emit(this.totalNumber)
+      this.totalLength.emit(this.cart.length)
     })
+  }
+
+
+  changeNumberOfProducts(product: any, increase: boolean) {
+    this.svc.changeNumberOfProducts(this.pureResult, product, increase);
   }
 
   confirmDelete(event: Event) {
@@ -42,20 +50,5 @@ export class CartSidebarComponent {
         this.svc.deleteAllProducts();
       }
     });
-  }
-
-  hideSideBar() {
-    this.el.nativeElement.firstChild.classList.remove("sideCart_active")
-  }
-
-  @HostListener('document:click', ['$event.target'])
-  public onClick(target: any) {
-    let isCartIcon = target.classList.contains("header__link") || 
-                    target.classList.contains("header__count") ||
-                    target.classList.contains("sideCart__minus") ||
-                    target.classList.contains("sideCart__plus")
-    const clickedInside = this.el.nativeElement.contains(target)
-    if (!clickedInside && !isCartIcon) 
-    this.hideSideBar()
   }
 }

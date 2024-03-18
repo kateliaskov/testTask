@@ -27,7 +27,7 @@ export class FiltersComponent {
   }
 
   filterName() {
-    let newProducts = this.products.filter((el: any) => el.title.startsWith(this.nameValue))
+    let newProducts = this.products.filter((el: any) => el.title.toLowerCase().startsWith(this.nameValue.toLowerCase()))
     this.filterPrice(newProducts);
   }
 

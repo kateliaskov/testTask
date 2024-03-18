@@ -1,0 +1,168 @@
+
+.cartPage {
+  min-height: 80vh;
+  padding-top: 150px;
+
+  &__back {
+    all: unset;
+    display: inline-block;
+    margin-bottom: 20px;
+    color: #B185A7;
+    border-bottom: 1px solid #B185A7;
+
+    font-size: 16px;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  &__info {
+    display: grid;
+    grid-template-columns: 400px auto;
+    gap: 50px;
+  }
+
+  &__products {
+    padding: 10px;
+    border: 1px solid rgba(128, 128, 128, 0.681);
+    border-radius: 10px;
+    min-height: 20vh;
+  }
+
+  &__mainInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  &__personalInfo{
+    display: flex;
+    gap: 5px;
+  }
+
+  &__delivery {
+    display: flex;
+    gap: 20px;
+    font-size: large;
+    div {
+      display: flex;
+      gap: 5px;
+    }
+  }
+
+  &__payment {
+    display: flex;
+    gap: 20px;
+
+    label {
+      font-size: 15px;
+    }
+    
+    div {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+  }
+
+  &__totalPrice {
+    font-size: 25px;
+    span {
+      font-size: 12px;
+      color: gray;
+    }
+
+  }
+
+  &__money {
+    font-size: 25px !important;
+    color: green !important;
+  }
+
+  &__block {
+    margin-top: 40px;
+
+    div {
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+    p-dropdown {
+      margin: 0 5px;
+    }
+  }
+
+  &__btn {
+    all: unset;
+    background-color: #B185A7;
+    color: white;
+    width: 300px;
+    padding: 10px;
+    font-size: 20px;
+    text-align: center;
+    margin-top: 30px;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  &__input {
+
+    &_wrong {
+      border-color: red;
+    }
+  }
+
+  &__empty {
+    a {
+      all: unset;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    font-size: large;
+  }
+}
+
+@media (max-width: 1200px) {
+  .cartPage {
+    &__info {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 50px;
+    }
+
+    .sideCart__product {
+      background-color: red !important;
+    }
+
+    &__personalInfo{
+      width: 100%;
+      display: flex;
+      gap: 10px;
+
+      input {
+        width: 100%;
+      }
+    }
+
+    &__btn {
+      width: 100%;
+      padding: 20px 0;
+      font-size: 20px;
+      text-align: center;
+      margin: 30px 0;
+  
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+}
+

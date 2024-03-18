@@ -1,4 +1,6 @@
 # Test task for DevCom
+## View project - https://test-task-blush-omega.vercel.app/
+
 
 ## About the project
 ### The project was built using a fake api from dummyJSON
